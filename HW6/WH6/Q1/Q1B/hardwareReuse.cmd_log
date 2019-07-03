@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "C:/Users/Dear Kimiya.Be Happy/Desktop/fpga/hw6/q1/hardwareReuse.xst" -ofn "C:/Users/Dear Kimiya.Be Happy/Desktop/fpga/hw6/q1/hardwareReuse.syr" 

@@ -1,0 +1,19 @@
+Release 14.7 - netgen P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Command Line: netgen -intstyle ise -ar Structure -tm pipelined -w -dir
+netgen/synthesis -ofmt vhdl -sim pipelined.ngc pipelined_synthesis.vhd  
+
+Reading design 'pipelined.ngc' ...
+Flattening design ...
+Processing design ... 
+  Preping design's networks ...
+  Preping design's macros ...
+Writing VHDL netlist 'C:\Users\Dear Kimiya.Be
+Happy\Desktop\fpga\hw6\q1\netgen\synthesis\pipelined_synthesis.vhd' ...
+INFO:NetListWriters:635 - The generated VHDL netlist contains Xilinx UNISIM
+   simulation primitives and has to be used with UNISIM library for correct
+   compilation and simulation. 
+Number of warnings: 0
+Number of info messages: 1
+Total memory usage is 4394972 kilobytes

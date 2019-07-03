@@ -1,0 +1,4 @@
+verilog isim_temp "pipelined.v"
+verilog isim_temp "hardwareReuse.v"
+verilog isim_temp "testq1.v"
+verilog isim_temp "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"

@@ -1,0 +1,4 @@
+xst -intstyle ise -ifn "C:/Users/Dear Kimiya.Be Happy/Desktop/fpga/hw6/q1/pipelined.xst" -ofn "C:/Users/Dear Kimiya.Be Happy/Desktop/fpga/hw6/q1/pipelined.syr" 
+xst -intstyle ise -ifn "C:/Users/Dear Kimiya.Be Happy/Desktop/fpga/hw6/q1/pipelined.xst" -ofn "C:/Users/Dear Kimiya.Be Happy/Desktop/fpga/hw6/q1/pipelined.syr" 
+xst -intstyle ise -ifn "C:/Users/Dear Kimiya.Be Happy/Desktop/fpga/hw6/q1/pipelined.xst" -ofn "C:/Users/Dear Kimiya.Be Happy/Desktop/fpga/hw6/q1/pipelined.syr" 
+netgen -intstyle ise -ar Structure -tm pipelined -w -dir netgen/synthesis -ofmt vhdl -sim pipelined.ngc pipelined_synthesis.vhd 

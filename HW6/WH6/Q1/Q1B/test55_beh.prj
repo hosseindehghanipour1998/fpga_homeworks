@@ -1,0 +1,3 @@
+verilog work "pipelined.v"
+verilog work "test55.v"
+verilog work "E:/Programs/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"

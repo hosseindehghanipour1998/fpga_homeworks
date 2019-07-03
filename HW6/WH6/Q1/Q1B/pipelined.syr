@@ -1,0 +1,1194 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Reading design: pipelined.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "pipelined.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "pipelined"
+Output Format                      : NGC
+Target Device                      : xc3s50-5-pq208
+
+---- Source Options
+Top Module Name                    : pipelined
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "pipelined.v" in library work
+Module <pipelined> compiled
+No errors in compilation
+Analysis of file <"pipelined.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <pipelined> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <pipelined>.
+Module <pipelined> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <pipelined>.
+    Related source file is "pipelined.v".
+WARNING:Xst:646 - Signal <temp3b<15:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <temp3a<15:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <por32> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <por16> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <pipe7> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found 64-bit adder for signal <res>.
+    Found 64-bit register for signal <pipe1>.
+    Found 64-bit register for signal <pipe2>.
+    Found 64-bit register for signal <pipe3>.
+    Found 64-bit register for signal <pipe4>.
+    Found 64-bit register for signal <pipe5>.
+    Found 64-bit register for signal <pipe6>.
+    Found 64-bit adder for signal <res$addsub0000> created at line 96.
+    Found 64-bit adder for signal <res$addsub0001> created at line 96.
+    Found 32-bit register for signal <res1>.
+    Found 16x16-bit multiplier for signal <res1$mult0000> created at line 64.
+    Found 32-bit register for signal <res2>.
+    Found 16x16-bit multiplier for signal <res2$mult0000> created at line 73.
+    Found 32-bit register for signal <res3>.
+    Found 16x16-bit multiplier for signal <res3$mult0000> created at line 82.
+    Found 32-bit register for signal <res4>.
+    Found 16x16-bit multiplier for signal <res4$mult0000> created at line 90.
+    Found 64-bit register for signal <res5>.
+    Found 64-bit register for signal <res6>.
+    Found 64-bit register for signal <res7>.
+    Found 64-bit register for signal <res8>.
+    Found 32-bit register for signal <temp1a>.
+    Found 32-bit register for signal <temp1b>.
+    Found 32-bit register for signal <temp2a>.
+    Found 32-bit register for signal <temp2b>.
+    Found 32-bit register for signal <temp3a>.
+    Found 32-bit register for signal <temp3b>.
+    Summary:
+	inferred 960 D-type flip-flop(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred   4 Multiplier(s).
+Unit <pipelined> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 4
+ 16x16-bit multiplier                                  : 4
+# Adders/Subtractors                                   : 3
+ 64-bit adder                                          : 3
+# Registers                                            : 20
+ 32-bit register                                       : 10
+ 64-bit register                                       : 10
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1710 - FF/Latch <res7_4> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_5> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_6> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_7> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_8> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_9> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_10> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_11> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_12> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_13> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_14> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_15> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_48> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_49> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_50> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_51> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_52> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_53> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_54> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_55> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_48> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_49> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_50> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_51> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_52> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_53> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_54> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_55> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_56> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_57> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_58> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_59> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_60> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_61> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_62> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_63> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_0> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_1> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_2> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_3> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_12> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_13> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_14> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_15> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_16> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_17> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_18> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_19> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_20> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_21> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_22> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_23> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_24> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_25> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_26> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_27> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_28> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_29> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_30> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_31> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_56> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_57> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_58> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_59> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_60> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_61> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_62> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_63> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_0> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_1> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_2> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_3> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_4> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_5> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_6> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_7> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_8> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_9> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_10> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_11> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_63> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_62> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_61> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_60> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_59> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_58> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_57> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_56> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_55> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_54> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_53> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_52> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_51> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_50> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_49> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_48> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_47> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_46> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_45> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_44> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_43> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_42> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_41> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_40> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_39> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_38> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_37> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_36> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_35> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_34> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_33> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res5_32> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_0> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_1> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_2> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_3> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_4> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_5> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_6> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_7> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_8> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_9> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_10> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_11> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_12> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_13> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_14> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_15> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_35> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_34> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_33> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_32> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_63> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_62> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_61> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_60> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_59> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_58> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_57> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_56> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_36> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_37> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_38> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_39> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_40> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_41> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_42> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_43> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_44> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_45> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_46> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_47> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_0> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_1> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_2> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_3> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_4> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_5> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_6> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_7> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_8> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_9> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_10> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_11> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_12> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_13> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_14> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_15> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_48> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_49> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_50> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_51> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_52> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_53> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_54> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_55> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_63> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_62> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_61> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_60> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_59> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_58> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_57> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_56> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_55> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_54> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_53> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_52> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_51> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_50> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_49> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_48> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_15> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_14> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_13> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_12> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_11> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_10> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_9> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_8> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_7> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_6> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_5> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_4> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_3> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_2> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_1> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_0> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_56> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_57> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_58> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_59> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_60> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_61> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_62> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_63> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_55> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_54> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_53> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_52> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_51> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_50> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_49> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe1_48> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_63> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_62> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_61> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_60> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_59> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_58> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_57> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_56> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_32> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_33> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_34> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_35> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_36> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_37> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_38> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_39> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_40> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_41> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_42> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_43> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_44> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_45> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_46> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_47> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_3> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_2> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_1> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_0> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_63> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_62> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_61> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_60> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_59> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_58> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_57> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_56> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_55> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_54> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_53> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_52> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_51> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_50> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_49> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe2_48> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_55> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_54> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_53> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_52> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_51> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_50> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_49> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_48> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_15> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_14> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_13> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_12> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_11> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_10> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_9> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_8> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_4> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_5> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_6> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_7> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_33> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_32> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_52> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_53> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_54> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_55> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_56> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_57> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_58> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_59> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_60> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_61> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_62> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_63> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_51> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_50> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_49> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_48> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_47> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_46> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_45> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_44> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_43> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_42> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_41> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_40> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_39> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_38> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_37> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_36> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_35> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_34> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <temp2b_0> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_1> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_2> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_3> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_4> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_5> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_6> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_7> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_8> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_9> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_10> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_11> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_12> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_13> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_14> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_15> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_0> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_1> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_2> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_3> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_4> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_5> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_6> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_7> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_8> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_9> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_10> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_11> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_12> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_13> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_14> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_15> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_0> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_1> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_2> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_3> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_4> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_5> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_6> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_7> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_8> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_9> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_10> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_11> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_12> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_13> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_14> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_15> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2404 -  FFs/Latches <res7<63:48>> (without init value) have a constant value of 0 in block <pipelined>.
+WARNING:Xst:2404 -  FFs/Latches <res6<63:48>> (without init value) have a constant value of 0 in block <pipelined>.
+WARNING:Xst:2404 -  FFs/Latches <res5<63:32>> (without init value) have a constant value of 0 in block <pipelined>.
+WARNING:Xst:2404 -  FFs/Latches <pipe6<63:48>> (without init value) have a constant value of 0 in block <pipelined>.
+WARNING:Xst:2404 -  FFs/Latches <pipe4<63:48>> (without init value) have a constant value of 0 in block <pipelined>.
+WARNING:Xst:2404 -  FFs/Latches <pipe1<63:32>> (without init value) have a constant value of 0 in block <pipelined>.
+WARNING:Xst:2404 -  FFs/Latches <pipe5<63:48>> (without init value) have a constant value of 0 in block <pipelined>.
+WARNING:Xst:2404 -  FFs/Latches <pipe2<63:32>> (without init value) have a constant value of 0 in block <pipelined>.
+
+Synthesizing (advanced) Unit <pipelined>.
+	Found pipelined multiplier on signal <res4_mult0000>:
+		- 1 pipeline level(s) found in a register connected to the multiplier macro output.
+		Pushing register(s) into the multiplier macro.
+	Found pipelined multiplier on signal <res3_mult0000>:
+		- 1 pipeline level(s) found in a register connected to the multiplier macro output.
+		Pushing register(s) into the multiplier macro.
+	Found pipelined multiplier on signal <res2_mult0000>:
+		- 1 pipeline level(s) found in a register connected to the multiplier macro output.
+		Pushing register(s) into the multiplier macro.
+	Found pipelined multiplier on signal <res1_mult0000>:
+		- 1 pipeline level(s) found in a register connected to the multiplier macro output.
+		Pushing register(s) into the multiplier macro.
+Unit <pipelined> synthesized (advanced).
+WARNING:Xst:2677 - Node <temp2b_0> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_1> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_2> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_3> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_4> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_5> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_6> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_7> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_8> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_9> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_10> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_11> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_12> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_13> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_14> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp2b_15> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_0> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_1> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_2> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_3> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_4> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_5> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_6> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_7> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_8> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_9> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_10> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_11> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_12> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_13> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_14> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3a_15> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_0> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_1> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_2> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_3> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_4> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_5> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_6> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_7> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_8> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_9> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_10> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_11> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_12> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_13> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_14> of sequential type is unconnected in block <pipelined>.
+WARNING:Xst:2677 - Node <temp3b_15> of sequential type is unconnected in block <pipelined>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 4
+ 16x16-bit registered multiplier                       : 4
+# Adders/Subtractors                                   : 3
+ 64-bit adder                                          : 3
+# Registers                                            : 608
+ Flip-Flops                                            : 608
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <res8_3> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_2> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_1> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_0> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_63> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_62> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_61> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_60> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_59> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_58> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_57> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_56> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_55> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_54> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_53> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_52> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_51> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_50> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_49> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_48> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_47> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_46> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_45> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_44> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_43> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_42> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_41> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_40> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_31> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_30> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_29> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_28> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_27> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_26> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_25> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_24> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_23> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_22> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_21> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_20> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_19> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_18> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_17> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_16> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_15> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_14> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_13> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_12> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_11> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_10> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_9> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_8> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_7> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_6> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_5> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res8_4> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_11> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_10> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_9> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_8> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_7> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_6> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_5> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_4> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_3> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_2> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_1> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_0> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_15> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_14> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_13> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_12> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_11> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_10> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_9> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_8> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_7> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_6> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_5> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_4> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_3> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_2> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_1> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res6_0> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_39> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_38> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_37> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_36> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_35> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_34> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_33> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe3_32> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_12> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_13> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_14> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <res7_15> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_15> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_14> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_13> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_12> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_0> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_1> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_2> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_3> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_4> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_5> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_6> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_7> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_8> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_9> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_10> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe6_11> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_0> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_1> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_2> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_3> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_4> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_5> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_6> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_7> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_8> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_9> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_10> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_11> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_12> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_13> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_14> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe4_15> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_15> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_14> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_13> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_12> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_11> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_10> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_9> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_8> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_7> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_6> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_5> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_4> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_3> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_2> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_1> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pipe5_0> (without init value) has a constant value of 0 in block <pipelined>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <pipelined> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block pipelined, actual ratio is 38.
+
+Final Macro Processing ...
+
+Processing Unit <pipelined> :
+	Found 2-bit shift register for signal <temp2a_0>.
+	Found 2-bit shift register for signal <temp2a_1>.
+	Found 2-bit shift register for signal <temp2a_2>.
+	Found 2-bit shift register for signal <temp2a_3>.
+	Found 2-bit shift register for signal <temp2a_4>.
+	Found 2-bit shift register for signal <temp2a_5>.
+	Found 2-bit shift register for signal <temp2a_6>.
+	Found 2-bit shift register for signal <temp2a_7>.
+	Found 2-bit shift register for signal <temp2a_8>.
+	Found 2-bit shift register for signal <temp2a_9>.
+	Found 2-bit shift register for signal <temp2a_10>.
+	Found 2-bit shift register for signal <temp2a_11>.
+	Found 2-bit shift register for signal <temp2a_12>.
+	Found 2-bit shift register for signal <temp2a_13>.
+	Found 2-bit shift register for signal <temp2a_14>.
+	Found 2-bit shift register for signal <temp2a_15>.
+	Found 2-bit shift register for signal <temp2b_16>.
+	Found 2-bit shift register for signal <temp2b_17>.
+	Found 2-bit shift register for signal <temp2b_18>.
+	Found 2-bit shift register for signal <temp2b_19>.
+	Found 2-bit shift register for signal <temp2b_20>.
+	Found 2-bit shift register for signal <temp2b_21>.
+	Found 2-bit shift register for signal <temp2b_22>.
+	Found 2-bit shift register for signal <temp2b_23>.
+	Found 2-bit shift register for signal <temp2b_24>.
+	Found 2-bit shift register for signal <temp2b_25>.
+	Found 2-bit shift register for signal <temp2b_26>.
+	Found 2-bit shift register for signal <temp2b_27>.
+	Found 2-bit shift register for signal <temp2b_28>.
+	Found 2-bit shift register for signal <temp2b_29>.
+	Found 2-bit shift register for signal <temp2b_30>.
+	Found 2-bit shift register for signal <temp2b_31>.
+	Found 2-bit shift register for signal <temp3a_16>.
+	Found 2-bit shift register for signal <temp3a_17>.
+	Found 2-bit shift register for signal <temp3a_18>.
+	Found 2-bit shift register for signal <temp3a_19>.
+	Found 2-bit shift register for signal <temp3a_20>.
+	Found 2-bit shift register for signal <temp3a_21>.
+	Found 2-bit shift register for signal <temp3a_22>.
+	Found 2-bit shift register for signal <temp3a_23>.
+	Found 2-bit shift register for signal <temp3a_24>.
+	Found 2-bit shift register for signal <temp3a_25>.
+	Found 2-bit shift register for signal <temp3a_26>.
+	Found 2-bit shift register for signal <temp3a_27>.
+	Found 2-bit shift register for signal <temp3a_28>.
+	Found 2-bit shift register for signal <temp3a_29>.
+	Found 2-bit shift register for signal <temp3a_30>.
+	Found 2-bit shift register for signal <temp3a_31>.
+	Found 4-bit shift register for signal <pipe3_0>.
+	Found 4-bit shift register for signal <pipe3_1>.
+	Found 4-bit shift register for signal <pipe3_2>.
+	Found 4-bit shift register for signal <pipe3_3>.
+	Found 4-bit shift register for signal <pipe3_4>.
+	Found 4-bit shift register for signal <pipe3_5>.
+	Found 4-bit shift register for signal <pipe3_6>.
+	Found 4-bit shift register for signal <pipe3_7>.
+	Found 4-bit shift register for signal <pipe3_8>.
+	Found 4-bit shift register for signal <pipe3_9>.
+	Found 4-bit shift register for signal <pipe3_10>.
+	Found 4-bit shift register for signal <pipe3_11>.
+	Found 4-bit shift register for signal <pipe3_12>.
+	Found 4-bit shift register for signal <pipe3_13>.
+	Found 4-bit shift register for signal <pipe3_14>.
+	Found 4-bit shift register for signal <pipe3_15>.
+	Found 4-bit shift register for signal <pipe3_16>.
+	Found 4-bit shift register for signal <pipe3_17>.
+	Found 4-bit shift register for signal <pipe3_18>.
+	Found 4-bit shift register for signal <pipe3_19>.
+	Found 4-bit shift register for signal <pipe3_20>.
+	Found 4-bit shift register for signal <pipe3_21>.
+	Found 4-bit shift register for signal <pipe3_22>.
+	Found 4-bit shift register for signal <pipe3_23>.
+	Found 4-bit shift register for signal <pipe3_24>.
+	Found 4-bit shift register for signal <pipe3_25>.
+	Found 4-bit shift register for signal <pipe3_26>.
+	Found 4-bit shift register for signal <pipe3_27>.
+	Found 4-bit shift register for signal <pipe3_28>.
+	Found 4-bit shift register for signal <pipe3_29>.
+	Found 4-bit shift register for signal <pipe3_30>.
+	Found 4-bit shift register for signal <pipe3_31>.
+	Found 2-bit shift register for signal <pipe6_16>.
+	Found 2-bit shift register for signal <pipe6_17>.
+	Found 2-bit shift register for signal <pipe6_18>.
+	Found 2-bit shift register for signal <pipe6_19>.
+	Found 2-bit shift register for signal <pipe6_20>.
+	Found 2-bit shift register for signal <pipe6_21>.
+	Found 2-bit shift register for signal <pipe6_22>.
+	Found 2-bit shift register for signal <pipe6_23>.
+	Found 2-bit shift register for signal <pipe6_24>.
+	Found 2-bit shift register for signal <pipe6_25>.
+	Found 2-bit shift register for signal <pipe6_26>.
+	Found 2-bit shift register for signal <pipe6_27>.
+	Found 2-bit shift register for signal <pipe6_28>.
+	Found 2-bit shift register for signal <pipe6_29>.
+	Found 2-bit shift register for signal <pipe6_30>.
+	Found 2-bit shift register for signal <pipe6_31>.
+	Found 2-bit shift register for signal <pipe6_32>.
+	Found 2-bit shift register for signal <pipe6_33>.
+	Found 2-bit shift register for signal <pipe6_34>.
+	Found 2-bit shift register for signal <pipe6_35>.
+	Found 2-bit shift register for signal <pipe6_36>.
+	Found 2-bit shift register for signal <pipe6_37>.
+	Found 2-bit shift register for signal <pipe6_38>.
+	Found 2-bit shift register for signal <pipe6_39>.
+	Found 2-bit shift register for signal <pipe6_40>.
+	Found 2-bit shift register for signal <pipe6_41>.
+	Found 2-bit shift register for signal <pipe6_42>.
+	Found 2-bit shift register for signal <pipe6_43>.
+	Found 2-bit shift register for signal <pipe6_44>.
+	Found 2-bit shift register for signal <pipe6_45>.
+	Found 2-bit shift register for signal <pipe6_46>.
+	Found 2-bit shift register for signal <pipe6_47>.
+	Found 3-bit shift register for signal <pipe5_16>.
+	Found 3-bit shift register for signal <pipe5_17>.
+	Found 3-bit shift register for signal <pipe5_18>.
+	Found 3-bit shift register for signal <pipe5_19>.
+	Found 3-bit shift register for signal <pipe5_20>.
+	Found 3-bit shift register for signal <pipe5_21>.
+	Found 3-bit shift register for signal <pipe5_22>.
+	Found 3-bit shift register for signal <pipe5_23>.
+	Found 3-bit shift register for signal <pipe5_24>.
+	Found 3-bit shift register for signal <pipe5_25>.
+	Found 3-bit shift register for signal <pipe5_26>.
+	Found 3-bit shift register for signal <pipe5_27>.
+	Found 3-bit shift register for signal <pipe5_28>.
+	Found 3-bit shift register for signal <pipe5_29>.
+	Found 3-bit shift register for signal <pipe5_30>.
+	Found 3-bit shift register for signal <pipe5_31>.
+	Found 3-bit shift register for signal <pipe5_32>.
+	Found 3-bit shift register for signal <pipe5_33>.
+	Found 3-bit shift register for signal <pipe5_34>.
+	Found 3-bit shift register for signal <pipe5_35>.
+	Found 3-bit shift register for signal <pipe5_36>.
+	Found 3-bit shift register for signal <pipe5_37>.
+	Found 3-bit shift register for signal <pipe5_38>.
+	Found 3-bit shift register for signal <pipe5_39>.
+	Found 3-bit shift register for signal <pipe5_40>.
+	Found 3-bit shift register for signal <pipe5_41>.
+	Found 3-bit shift register for signal <pipe5_42>.
+	Found 3-bit shift register for signal <pipe5_43>.
+	Found 3-bit shift register for signal <pipe5_44>.
+	Found 3-bit shift register for signal <pipe5_45>.
+	Found 3-bit shift register for signal <pipe5_46>.
+	Found 3-bit shift register for signal <pipe5_47>.
+Unit <pipelined> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 80
+ Flip-Flops                                            : 80
+# Shift Registers                                      : 144
+ 2-bit shift register                                  : 80
+ 3-bit shift register                                  : 32
+ 4-bit shift register                                  : 32
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : pipelined.ngr
+Top Level Output File Name         : pipelined
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 129
+
+Cell Usage :
+# BELS                             : 224
+#      GND                         : 1
+#      LUT1                        : 13
+#      LUT2                        : 19
+#      LUT3                        : 18
+#      LUT4                        : 30
+#      MULT_AND                    : 15
+#      MUXCY                       : 63
+#      VCC                         : 1
+#      XORCY                       : 64
+# FlipFlops/Latches                : 224
+#      FD                          : 224
+# Shift Registers                  : 144
+#      SRL16                       : 144
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 128
+#      IBUF                        : 64
+#      OBUF                        : 64
+# MULTs                            : 4
+#      MULT18X18S                  : 4
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s50pq208-5 
+
+ Number of Slices:                      160  out of    768    20%  
+ Number of Slice Flip Flops:            224  out of   1536    14%  
+ Number of 4 input LUTs:                224  out of   1536    14%  
+    Number used as logic:                80
+    Number used as Shift registers:     144
+ Number of IOs:                         129
+ Number of bonded IOBs:                 129  out of    124   104% (*) 
+ Number of MULT18X18s:                    4  out of      4   100%  
+ Number of GCLKs:                         1  out of      8    12%  
+
+WARNING:Xst:1336 -  (*) More than 100% of Device resources are used
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 372   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+--------------------------+-------+
+Control Signal                     | Buffer(FF name)          | Load  |
+-----------------------------------+--------------------------+-------+
+N0(XST_GND:G)                      | NONE(Mmult_res1_mult0000)| 4     |
+N1(XST_VCC:P)                      | NONE(Mmult_res1_mult0000)| 4     |
+-----------------------------------+--------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 3.424ns (Maximum Frequency: 292.069MHz)
+   Minimum input arrival time before clock: 3.296ns
+   Maximum output required time after clock: 15.529ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 3.424ns (frequency: 292.069MHz)
+  Total number of paths / destination ports: 400 / 400
+-------------------------------------------------------------------------
+Delay:               3.424ns (Levels of Logic = 0)
+  Source:            Mmult_res1_mult0000 (MULT)
+  Destination:       Mshreg_pipe3_31 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: Mmult_res1_mult0000 to Mshreg_pipe3_31
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     MULT18X18S:C->P31     1   2.361   0.681  Mmult_res1_mult0000 (res1<31>)
+     SRL16:D                   0.382          Mshreg_pipe3_31
+    ----------------------------------------
+    Total                      3.424ns (2.743ns logic, 0.681ns route)
+                                       (80.1% logic, 19.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 96 / 96
+-------------------------------------------------------------------------
+Offset:              3.296ns (Levels of Logic = 1)
+  Source:            b<15> (PAD)
+  Destination:       Mmult_res1_mult0000 (MULT)
+  Destination Clock: clk rising
+
+  Data Path: b<15> to Mmult_res1_mult0000
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   0.715   0.745  b_15_IBUF (b_15_IBUF)
+     MULT18X18S:A15            1.836          Mmult_res1_mult0000
+    ----------------------------------------
+    Total                      3.296ns (2.551ns logic, 0.745ns route)
+                                       (77.4% logic, 22.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 154387 / 64
+-------------------------------------------------------------------------
+Offset:              15.529ns (Levels of Logic = 52)
+  Source:            pipe5_16 (FF)
+  Destination:       res<63> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: pipe5_16 to res<63>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               2   0.626   1.040  pipe5_16 (pipe5_16)
+     LUT3:I0->O            1   0.479   0.976  Madd_res_addsub0001C321 (Madd_res_addsub0001C)
+     LUT4:I0->O            1   0.479   0.000  Madd_res_addsub0001_Madd_lut<17> (Madd_res_addsub0001_Madd_lut<17>)
+     MUXCY:S->O            1   0.435   0.000  Madd_res_addsub0001_Madd_cy<17> (Madd_res_addsub0001_Madd_cy<17>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<18> (Madd_res_addsub0001_Madd_cy<18>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<19> (Madd_res_addsub0001_Madd_cy<19>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<20> (Madd_res_addsub0001_Madd_cy<20>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<21> (Madd_res_addsub0001_Madd_cy<21>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<22> (Madd_res_addsub0001_Madd_cy<22>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<23> (Madd_res_addsub0001_Madd_cy<23>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<24> (Madd_res_addsub0001_Madd_cy<24>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<25> (Madd_res_addsub0001_Madd_cy<25>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<26> (Madd_res_addsub0001_Madd_cy<26>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<27> (Madd_res_addsub0001_Madd_cy<27>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<28> (Madd_res_addsub0001_Madd_cy<28>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<29> (Madd_res_addsub0001_Madd_cy<29>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<30> (Madd_res_addsub0001_Madd_cy<30>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<31> (Madd_res_addsub0001_Madd_cy<31>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<32> (Madd_res_addsub0001_Madd_cy<32>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<33> (Madd_res_addsub0001_Madd_cy<33>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<34> (Madd_res_addsub0001_Madd_cy<34>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<35> (Madd_res_addsub0001_Madd_cy<35>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<36> (Madd_res_addsub0001_Madd_cy<36>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<37> (Madd_res_addsub0001_Madd_cy<37>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<38> (Madd_res_addsub0001_Madd_cy<38>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<39> (Madd_res_addsub0001_Madd_cy<39>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<40> (Madd_res_addsub0001_Madd_cy<40>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<41> (Madd_res_addsub0001_Madd_cy<41>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<42> (Madd_res_addsub0001_Madd_cy<42>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<43> (Madd_res_addsub0001_Madd_cy<43>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<44> (Madd_res_addsub0001_Madd_cy<44>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<45> (Madd_res_addsub0001_Madd_cy<45>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<46> (Madd_res_addsub0001_Madd_cy<46>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_addsub0001_Madd_cy<47> (Madd_res_addsub0001_Madd_cy<47>)
+     XORCY:CI->O           1   0.786   0.976  Madd_res_addsub0001_Madd_xor<48> (res_addsub0001<48>)
+     LUT2:I0->O            1   0.479   0.000  Madd_res_lut<48> (Madd_res_lut<48>)
+     MUXCY:S->O            1   0.435   0.000  Madd_res_cy<48> (Madd_res_cy<48>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_cy<49> (Madd_res_cy<49>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_cy<50> (Madd_res_cy<50>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_cy<51> (Madd_res_cy<51>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_cy<52> (Madd_res_cy<52>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_cy<53> (Madd_res_cy<53>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_cy<54> (Madd_res_cy<54>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_cy<55> (Madd_res_cy<55>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_cy<56> (Madd_res_cy<56>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_cy<57> (Madd_res_cy<57>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_cy<58> (Madd_res_cy<58>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_cy<59> (Madd_res_cy<59>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_cy<60> (Madd_res_cy<60>)
+     MUXCY:CI->O           1   0.056   0.000  Madd_res_cy<61> (Madd_res_cy<61>)
+     MUXCY:CI->O           0   0.056   0.000  Madd_res_cy<62> (Madd_res_cy<62>)
+     XORCY:CI->O           1   0.786   0.681  Madd_res_xor<63> (res_63_OBUF)
+     OBUF:I->O                 4.909          res_63_OBUF (res<63>)
+    ----------------------------------------
+    Total                     15.529ns (11.856ns logic, 3.673ns route)
+                                       (76.3% logic, 23.7% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 9.69 secs
+ 
+--> 
+
+Total memory usage is 4534452 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  574 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

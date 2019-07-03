@@ -1,0 +1,5 @@
+set -tmpdir "Z:/hw6/q1/xst/projnav.tmp"
+set -xsthdpdir "Z:/hw6/q1/xst"
+elaborate
+-ifn pipelined.prj
+-ifmt mixed
